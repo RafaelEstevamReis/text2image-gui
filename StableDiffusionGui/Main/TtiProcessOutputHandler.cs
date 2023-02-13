@@ -26,6 +26,12 @@ namespace StableDiffusionGui.Main
             if (string.IsNullOrWhiteSpace(line))
                 return;
 
+            // check for nulls
+            if(line.Length > 2 && line[1] == '\0')
+            {
+                line = line.Replace("\0", "");
+            }
+
             //var noLogWildcards = new string[] { "step */*" };
             //
             //if (noLogWildcards.Where(w => !line.MatchesWildcard(w)).Any())
